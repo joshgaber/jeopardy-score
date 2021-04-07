@@ -32,11 +32,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->name('games.')->group(function () {
     Route::get('/games', function () {
         return Inertia::render('Games', [
-            'games' => Auth::user()->games
+            'games' => Auth::user()->games,
         ]);
     })->name('index');
 });
 
-Route::get('/', function() {
+Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('index');
