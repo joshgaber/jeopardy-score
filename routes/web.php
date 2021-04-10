@@ -35,6 +35,10 @@ Route::middleware(['auth:sanctum', 'verified'])->name('games.')->group(function 
             'games' => Auth::user()->games,
         ]);
     })->name('index');
+
+    Route::get('/games/create', function () {
+        return Inertia::render('Games/Create');
+    })->name('create');
 });
 
 Route::get('/', function () {

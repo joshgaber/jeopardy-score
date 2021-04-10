@@ -7,7 +7,8 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "lint": "eslint --ext .js,.vue resources/js"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.8.2",
@@ -29,6 +30,7 @@
         "tailwindcss": "^2.0.1",
         "vue": "^2.5.17",
         "vue-loader": "^15.9.6",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "vuejs-datepicker": "^1.6.2"
     }
 }
