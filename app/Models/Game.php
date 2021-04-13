@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function answers()
+    {
+        return $this->hasManyThrough(Answer::class, Category::class);
+    }
 }

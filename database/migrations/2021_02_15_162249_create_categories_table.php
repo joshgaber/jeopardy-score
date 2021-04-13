@@ -16,10 +16,10 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('game_id');
-            $table->string('name');
+            $table->string('name')->nullable();
+            $table->enum('type', ['regular', 'double', 'final'])->default('regular');
             $table->unsignedTinyInteger('order');
-            $table->unique(['game_id', 'name']);
-            $table->unique(['game_id', 'order']);
+            $table->unique(['game_id', 'type', 'order']);
             $table->timestamps();
         });
     }

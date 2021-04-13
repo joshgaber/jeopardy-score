@@ -13,7 +13,9 @@
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
           <ul>
-            <li v-for="game in games" :key="game.id">{{ game.name }}</li>
+            <li v-for="game in games" :key="game.id">
+              <inertia-link :href="route('games.show', game.id)">{{ game.name }}</inertia-link>
+            </li>
           </ul>
         </div>
       </div>

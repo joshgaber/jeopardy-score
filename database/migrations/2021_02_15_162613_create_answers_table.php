@@ -16,8 +16,8 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
-            $table->unsignedTinyInteger('order');
-            $table->enum('response', ['skipped', 'correct', 'incorrect']);
+            $table->unsignedInteger('value');
+            $table->enum('response', ['unanswered', 'correct', 'incorrect'])->default('unanswered');
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GamesController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,18 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->name('games.')->group(function () {
-    Route::get('/games', function () {
-        return Inertia::render('Games', [
-            'games' => Auth::user()->games,
-        ]);
-    })->name('index');
+Route::middleware(['auth:sanctum', 'verified'])
+    ->resource('games', GamesController::class)
+    ->only(['index', 'create', 'store', 'show']);
 
-    Route::get('/games/create', function () {
-        return Inertia::render('Games/Create');
-    })->name('create');
-});
-
-Route::get('/', function () {
-    return Inertia::render('Welcome');
-})->name('index');

@@ -9,7 +9,7 @@
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white shadow-xl sm:rounded-lg">
-          <form @submit="createGame">
+          <form @submit.prevent="createGame">
             <label for="game-date">Date of Game</label>
             <datepicker v-model="gameDate" id="game-date" inline format="yyyy-MM-dd" />
             <label>
@@ -35,6 +35,7 @@ export default {
   },
   data() {
     return {
+      name: '',
       gameDate: new Date(),
       defaultSetup: true
     }
@@ -47,6 +48,7 @@ export default {
   methods: {
     createGame() {
       this.$inertia.post(this.route('games.store'), {
+        name: this.name.length > 0 ? this.name : this.gameDateFormatted,
         game_date: this.gameDateFormatted,
         default_setup: this.defaultSetup
       })
