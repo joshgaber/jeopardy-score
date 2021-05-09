@@ -10,13 +10,15 @@
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white shadow-xl sm:rounded-lg">
           <form @submit.prevent="createGame">
+            <label for="name">Name</label>
+            <input type="text" id="name" v-model="name" />
             <label for="game-date">Date of Game</label>
             <datepicker v-model="gameDate" id="game-date" inline format="yyyy-MM-dd" />
             <label>
               <input type="checkbox" v-model="defaultSetup" />
               Use default Jeopardy! setup
             </label>
-            <button type="submit">Create</button>
+            <v-button class="mt-2 block" type="submit">Create</v-button>
           </form>
         </div>
       </div>
@@ -27,9 +29,12 @@
 <script>
 import AppLayout from '@/Layouts/AppLayout'
 import Datepicker from 'vuejs-datepicker'
+import VButton from '@/Components/Form/VButton'
+
 export default {
   name: 'CreateGame',
   components: {
+    VButton,
     AppLayout,
     Datepicker
   },

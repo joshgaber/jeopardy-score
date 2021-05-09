@@ -9,7 +9,10 @@ module.exports = {
         sans: ['Nunito', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        'jeopardy-blue': '#060ce9',
+        'jeopardy-blue': {
+          DEFAULT: '#060ce9',
+          lighter: '#5359FF'
+        },
         'jeopardy-yellow': '#ffcc00'
       }
     }

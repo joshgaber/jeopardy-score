@@ -1,9 +1,10 @@
 <template>
   <div class="h-screen flex flex-col">
-    <div class="flex-initial h-16 bg-white">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ game.name }}
-      </h2>
+    <div class="flex-initial flex h-16 bg-jeopardy-blue border border-white">
+      <inertia-link :href="route('games.index')" class="block h-full leading-8 p-4 text-2xl font-bold text-jeopardy-yellow hover:bg-jeopardy-blue-lighter">
+        &lt;
+      </inertia-link>
+      <h2 class="font-semibold text-2xl text-jeopardy-yellow leading-8 ml-2 py-4">{{ game.name }} - {{ game.game_date }}</h2>
     </div>
 
     <div class="flex-auto bg-white">
@@ -15,13 +16,11 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout'
 import Category from '@/Components/Category'
 
 export default {
   name: 'Store',
   components: {
-    AppLayout,
     Category
   },
   props: ['game'],
